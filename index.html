@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ed">
+  <meta name="description" content="和原创机器人蓝豆一起，打开神奇口袋，完成两场温柔又有趣的解谜冒险。">
+  <title>蓝豆的神奇口袋 · 小小冒险家</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='10' width='52' height='46' rx='20' fill='%235bafcf'/%3E%3Crect x='14' y='23' width='36' height='23' rx='10' fill='%23fff8e9'/%3E%3Ccircle cx='25' cy='33' r='3' fill='%232d525d'/%3E%3Ccircle cx='40' cy='33' r='3' fill='%232d525d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <div class="page-decoration" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="蓝豆的神奇口袋首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 44 44"><path d="M10 9h24v13c0 10-6 15-12 15S10 32 10 22Z" fill="#67b6cf"/><path d="M14 20h16c0 9-3 12-8 12s-8-3-8-12Z" fill="#eaf7f7"/><path d="m22 11 1.4 3.5 3.6.2-2.8 2.4.9 3.5-3.1-1.9-3.1 1.9.9-3.5-2.8-2.4 3.6-.2Z" fill="#ffda77"/></svg>
+      </span>
+      <span>蓝豆的神奇口袋<small>A LITTLE POCKET OF WONDER</small></span>
+    </a>
+    <nav class="header-nav" aria-label="主导航">
+      <span class="nav-current">冒险地图</span>
+      <button id="collection-button" class="nav-button" aria-label="查看我的星星">我的星星 <span id="star-count" class="count">0</span></button>
+    </nav>
+    <div class="header-actions">
+      <button id="sound-button" class="icon-button" aria-label="开启音效" aria-pressed="false"></button>
+      <button id="how-button" class="help-button" aria-label="怎么玩"><span aria-hidden="true">?</span> 怎么玩</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow"><span></span> 小小探险家，今天也有新发现</p>
+        <h1 id="page-title">小小口袋，<span>大大冒险。</span><svg aria-hidden="true" viewBox="0 0 46 46"><path d="m23 3 4.5 14.5L42 22l-14.5 4.5L23 41l-4.5-14.5L4 22l14.5-4.5Z" fill="#e4b54e"/></svg></h1>
+        <p class="intro-copy">和蓝豆做朋友，用一点点好奇心，解开奇妙世界的小秘密。</p>
+      </div>
+      <div class="gentle-badge"><span aria-hidden="true">✦</span><div>不着急，慢慢来<small>没有倒计时 · 每一次尝试都很棒</small></div></div>
+    </section>
+
+    <section class="adventure" aria-label="四关冒险">
+      <div class="level-navigation">
+        <div class="level-tabs" role="group" aria-label="选择关卡">
+          <button id="level-one" class="level-tab active" aria-pressed="true"><span class="level-number">01</span><span>森林里的彩虹桥</span><span class="tab-status" aria-hidden="true">✦</span></button>
+          <span class="map-dots" aria-hidden="true">· · ·</span>
+          <button id="level-two" class="level-tab" aria-pressed="false" disabled><span class="level-number">02</span><span>晚安，星光灯塔</span><span id="level-two-status" class="tab-status" aria-hidden="true">⌑</span></button>
+          <button id="level-three" class="level-tab" aria-pressed="false" disabled><span class="level-number">03</span><span>倒影花园找不同</span><span class="tab-status" aria-hidden="true">⌑</span></button>
+          <button id="level-four" class="level-tab" aria-pressed="false" disabled><span class="level-number">04</span><span>月亮饼干屋数独</span><span class="tab-status" aria-hidden="true">⌑</span></button>
+        </div>
+        <span class="chapter-label">奇妙森林篇 <span> / 4 个小故事</span></span>
+      </div>
+
+      <div class="game-card">
+        <div class="scene-column">
+          <div class="scene-heading">
+            <div><p id="level-category" class="scene-kicker"></p><h2 id="level-title"></h2></div>
+            <button id="restart-button" class="text-button" title="重新开始当前关卡"><span aria-hidden="true">↻</span> 再玩一次</button>
+          </div>
+          <div id="scene" class="scene" aria-label="互动冒险场景"></div>
+          <div class="scene-caption"><span class="pulse-dot" aria-hidden="true"></span><span id="scene-instruction">先选一个道具，再点场景里发光的小圆圈</span><span class="scene-caption-right">发现 · 思考 · 试一试</span></div>
+        </div>
+        <aside class="companion-panel" aria-label="伙伴和任务">
+          <div class="friend-heading"><span class="online-dot"></span> 你的冒险搭子 <span class="friend-name">蓝豆</span></div>
+          <div id="companion-art" class="companion-art" aria-hidden="true"></div>
+          <div class="speech-bubble"><span class="quote-mark" aria-hidden="true">“</span><p id="friend-message"></p><button id="read-button" class="read-button" aria-label="朗读蓝豆的提示">听蓝豆说 <span aria-hidden="true">♫</span></button></div>
+          <div class="mission-heading"><h3>这一关的小目标</h3><span id="mission-count">0 / 3</span></div>
+          <ol id="missions" class="missions"></ol>
+          <button id="hint-button" class="hint-button"><span aria-hidden="true">☼</span> 蓝豆，给我一点提示</button>
+        </aside>
+      </div>
+
+      <section class="toolbox" aria-labelledby="toolbox-title">
+        <div class="toolbox-label"><span class="pocket-mini" aria-hidden="true">✧</span><div><h2 id="toolbox-title">神奇道具口袋</h2><p>选一个，试试看！</p></div></div>
+        <div id="tools" class="tools" role="group" aria-label="选择神奇道具"></div>
+      </section>
+      <div class="below-game"><span><span class="tiny-star" aria-hidden="true">✧</span> 不会也没关系，蓝豆会一直陪着你。</span><span id="save-status">冒险进度会自动保存在这台设备</span></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>MADE FOR LITTLE WONDERS</span><span>原创伙伴 · 温柔解谜 · 好奇心万岁</span></footer>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="modal" aria-labelledby="modal-title">
+    <button id="modal-close" class="modal-close" aria-label="关闭弹窗">×</button>
+    <div id="modal-content"></div>
+  </dialog>
+</body>
+</html>
