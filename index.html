@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f5ed">
-  <meta name="description" content="和原创机器人蓝豆一起，打开神奇口袋，完成两场温柔又有趣的解谜冒险。">
+  <meta name="description" content="和原创机器人蓝豆一起，用十件神奇道具，完成二十场温柔又有趣的解谜冒险。">
   <title>蓝豆的神奇口袋 · 小小冒险家</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='10' width='52' height='46' rx='20' fill='%235bafcf'/%3E%3Crect x='14' y='23' width='36' height='23' rx='10' fill='%23fff8e9'/%3E%3Ccircle cx='25' cy='33' r='3' fill='%232d525d'/%3E%3Ccircle cx='40' cy='33' r='3' fill='%232d525d'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="game.js"></script>
+  <link rel="stylesheet" href="styles.css?v=20261104-natural-tools">
+  <script defer src="game.js?v=20261104-natural-tools"></script>
 </head>
 <body>
   <div class="page-decoration" aria-hidden="true"></div>
@@ -39,7 +39,9 @@
       <div class="gentle-badge"><span aria-hidden="true">✦</span><div>不着急，慢慢来<small>没有倒计时 · 每一次尝试都很棒</small></div></div>
     </section>
 
-    <section class="adventure" aria-label="四关冒险">
+    <section class="adventure" aria-label="二十关冒险">
+      <details class="world-map">
+        <summary><span>🗺️ 冒险地图</span><span id="map-current">第 1 站 / 20</span><span class="map-expand">自由选关⌄</span></summary>
       <div class="level-navigation">
         <div class="level-tabs" role="group" aria-label="选择关卡">
           <button id="level-one" class="level-tab active" aria-pressed="true"><span class="level-number">01</span><span>森林里的彩虹桥</span><span class="tab-status" aria-hidden="true">✦</span></button>
@@ -48,7 +50,8 @@
           <button id="level-three" class="level-tab" aria-pressed="false" disabled><span class="level-number">03</span><span>倒影花园找不同</span><span class="tab-status" aria-hidden="true">⌑</span></button>
           <button id="level-four" class="level-tab" aria-pressed="false" disabled><span class="level-number">04</span><span>月亮饼干屋数独</span><span class="tab-status" aria-hidden="true">⌑</span></button>
         </div>
-        <span class="chapter-label">奇妙森林篇 <span> / 4 个小故事</span></span>
+        </details>
+        <span class="chapter-label">奇妙世界篇 <span> / 20 个小故事 · 10 件道具</span></span>
       </div>
 
       <div class="game-card">
@@ -63,10 +66,11 @@
         <aside class="companion-panel" aria-label="伙伴和任务">
           <div class="friend-heading"><span class="online-dot"></span> 你的冒险搭子 <span class="friend-name">蓝豆</span></div>
           <div id="companion-art" class="companion-art" aria-hidden="true"></div>
-          <div class="speech-bubble"><span class="quote-mark" aria-hidden="true">“</span><p id="friend-message"></p><button id="read-button" class="read-button" aria-label="朗读蓝豆的提示">听蓝豆说 <span aria-hidden="true">♫</span></button></div>
-          <div class="mission-heading"><h3>这一关的小目标</h3><span id="mission-count">0 / 3</span></div>
+          <div class="speech-bubble"><p id="friend-message"></p><div class="friend-actions"><button id="expand-friend" class="read-button" aria-expanded="false" aria-controls="friend-message">展开对话</button><button id="read-button" class="read-button" aria-label="朗读蓝豆的提示">听蓝豆说 <span aria-hidden="true">♫</span></button></div></div>
+          <details class="mission-details"><summary>任务进度 <span id="mission-count">0 / 3</span></summary>
           <ol id="missions" class="missions"></ol>
-          <button id="hint-button" class="hint-button"><span aria-hidden="true">☼</span> 蓝豆，给我一点提示</button>
+          </details>
+          <button id="hint-button" class="hint-button"><span aria-hidden="true">☼</span> 找蓝豆帮忙</button>
         </aside>
       </div>
 
@@ -74,6 +78,13 @@
         <div class="toolbox-label"><span class="pocket-mini" aria-hidden="true">✧</span><div><h2 id="toolbox-title">神奇道具口袋</h2><p>选一个，试试看！</p></div></div>
         <div id="tools" class="tools" role="group" aria-label="选择神奇道具"></div>
       </section>
+      <details class="game-settings"><summary>⚙ 动画与预览</summary>
+      <div class="effect-controls" role="group" aria-label="道具动画设置">
+        <button id="effects-button" class="secondary-button" aria-pressed="false">道具动画</button>
+        <button id="preview-effect" class="secondary-button">预览所选道具动画</button>
+        <span id="effects-status" role="status"></span>
+      </div>
+      </details>
       <div class="below-game"><span><span class="tiny-star" aria-hidden="true">✧</span> 不会也没关系，蓝豆会一直陪着你。</span><span id="save-status">冒险进度会自动保存在这台设备</span></div>
     </section>
   </main>

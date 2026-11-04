@@ -113,7 +113,7 @@ h1 > svg { width: 33px; height: 33px; margin: 0 0 7px 13px; vertical-align: midd
 .pocket-mini { width: 41px; height: 43px; border: 1px solid #e7debd; border-radius: 11px 11px 19px 19px; background: #f5efd7; font-size: 28px; color: #bba565; display: grid; place-items: center; }
 .toolbox h2 { font-size: 13px; font-weight: 700; margin: 0 0 5px; color: #7c8066; letter-spacing: .5px; }
 .toolbox-label p { margin: 0; font-size: 10px; color: #aaa88f; }
-.tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; flex: 1; min-width: 0; }
+.tools { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; flex: 1; min-width: 0; }
 .tool-card { min-width: 0; position: relative; display: flex; align-items: center; text-align: left; gap: 9px; background: #f4f3e9; border: 1px solid #e9e7da; border-radius: 12px; padding: 10px; min-height: 69px; }
 .tool-card:hover { background: #ecf1e7; border-color: #c6d6c3; }
 .tool-card.selected { background: #edf6f2; border-color: #78aaa1; box-shadow: 0 0 0 2px #78aaa11c; }
@@ -159,13 +159,24 @@ dialog h2 { margin: 11px 0; font-size: 25px; letter-spacing: .5px; }
 .puzzle-feedback.retry { color: #b08a55; }
 .puzzle-links { display: flex; justify-content: center; gap: 20px; }
 .puzzle-links button { background: transparent; color: #8d9c7d; padding: 10px 4px; font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
-.light-board { position: relative; aspect-ratio: 420 / 340; background: #eff0df; border-radius: 17px; margin: 20px -7px 8px; overflow: hidden; border: 1px solid #e2e6cf; }
-.light-board > svg { width: 100%; height: 100%; display: block; }
-.arrow-tile { position: absolute; transform: translate(-50%, -50%); width: 55px; height: 55px; background: #fffaf0; border: 2px solid #d6d8bd; border-radius: 13px; font-size: 29px; color: #91a18b; box-shadow: 0 3px 0 #d9dcc5; }
-.arrow-tile:active { transform: translate(-50%, -48%) !important; }
-.arrow-tile.lit { border-color: #dab767; color: #c49335; background: #fff0ba; }
-.tile-index { position: absolute; left: -7px; top: -8px; font-size: 9px; width: 19px; height: 19px; line-height: 19px; border-radius: 50%; background: #8caa86; color: white; }
-.light-legend { font-size: 10px; color: #9ca68a; margin: 9px 0 0; }
+.puzzle-rules { padding-left: 20px; text-align: left; color: #718266; font-size: 12px; line-height: 1.9; margin: 15px 0; }
+.puzzle-rules li + li { margin-top: 6px; }
+.route-summary { background: #e9edd9; border-radius: 10px; padding: 9px; color: #84936b; font-size: 12px; }
+.route-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; margin: 15px 0; }
+.route-cell { position: relative; aspect-ratio: 1; background: #f0f1e0; border: 2px solid #d6dcc4; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 3px; font-size: 10px; color: #829578; }
+.route-cell.visited { background: #fff1bc; border-color: #d3b86e; color: #9c8549; }
+.route-cell.blocked { background: #e3e1e9; border-color: #c8c3d4; color: #9890a5; }
+.route-symbol { font-size: 25px; line-height: 1.1; }
+.route-step { font-size: 11px; font-weight: 500; }
+.garden-question { font-size: 14px; line-height: 1.9; color: #647357; margin: 15px 0 20px; text-align: left; }
+.animal-palette, .animal-homes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 18px 0; }
+.animal-palette button { display: grid; gap: 7px; padding: 10px 3px; border: 2px solid #dfe4ce; border-radius: 12px; background: #f0f3e5; font-size: 12px; }
+.animal-palette button > span { font-size: 34px; }
+.animal-palette .picked { border-color: #739c7a; background: #e3eedb; }
+.animal-homes button { position: relative; background: #f8f2de; border: 1px solid #e8dcc0; border-radius: 13px; padding: 7px 3px; min-width: 0; }
+.animal-homes svg { display: block; width: 100%; }
+.animal-homes small { display: block; font-size: 12px; color: #8c9576; margin-top: 5px; }
+.home-resident { position: absolute; top: 39%; left: 50%; transform: translateX(-50%); font-size: clamp(24px, 7vw, 36px); }
 .collection-stars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; gap: 12px; margin: 25px 0; }
 .collection-star { width: 135px; background: #f3f1df; border-radius: 17px; padding: 19px 8px; border: 1px solid #e4e6d1; }
 .collection-star .shape-svg { width: 49px; height: 49px; filter: grayscale(1); opacity: .25; }
@@ -209,7 +220,7 @@ dialog h2 { margin: 11px 0; font-size: 25px; letter-spacing: .5px; }
 .inline-feedback { font-size: 12px; line-height: 1.9; color: #879578; text-align: center; min-height: 40px; margin: 16px 0 0; }
 .puzzle-finish { display: block; margin: 15px auto 0; }
 .bakery-scene { background: #f5eedc !important; }
-.cookie-workbench { display: grid; grid-template-columns: minmax(0, 1fr) 160px; align-items: center; gap: 23px; max-width: 610px; margin: 20px auto 0; }
+.cookie-workbench { display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 210px); align-items: center; gap: 23px; width: min(100%, 740px); margin: 20px auto 0; }
 .cookie-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 3px solid #b6a582; border-radius: 12px; overflow: hidden; background: #cdbd9a; gap: 2px; }
 .cookie-cell { aspect-ratio: 1; min-width: 0; display: grid; place-items: center; background: #fffaf0; color: #c8c0a3; padding: 5px; font-size: 24px; }
 .cookie-cell:nth-child(4n + 2) { border-right: 3px solid #b6a582; }
@@ -217,12 +228,152 @@ dialog h2 { margin: 11px 0; font-size: 25px; letter-spacing: .5px; }
 .cookie-cell.fixed { background: #e7dcc1; opacity: .8; }
 .cookie-cell.selected { box-shadow: inset 0 0 0 3px #739b89; background: #edf2d7; }
 .cookie-cell .shape-svg { width: 75%; height: 75%; }
-.cookie-controls { display: grid; gap: 10px; }
+.cookie-controls { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0; }
 .cookie-controls > p { font-size: 11px; color: #998a6a; text-align: center; margin: 0; }
 .cookie-palette { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .cookie-palette button { padding: 8px; display: grid; justify-items: center; gap: 5px; background: #fff9e9; border: 1px solid #d8cbb1; border-radius: 12px; font-size: 10px; color: #938265; }
 .cookie-palette .shape-svg { width: 32px; height: 32px; }
 .cookie-controls .primary-button { font-size: 11px; padding: 12px 6px; }
+.cookie-controls .hint-button { grid-column: auto; grid-row: auto; width: 100%; min-width: 0; min-height: 44px; padding: 8px; font-size: 11px; border-radius: 14px; white-space: normal; }
+.new-scene-banner { display: block; width: 100%; margin: 14px auto; max-height: 180px; }
+.extra-puzzle { max-width: 580px; margin: auto; font-size: 14px; line-height: 1.9; }
+.extra-puzzle > .primary-button, .extra-puzzle > .secondary-button { display: block; margin: 12px auto; max-width: 100%; white-space: normal; }
+.extra-puzzle > .text-button { display: block; min-height: 44px; margin: auto; }
+.extra-options, .letter-palette { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 0; }
+.extra-options button:not(.primary-button), .letter-palette button, .river-banks button { min-height: 48px; padding: 10px 12px; border: 2px solid #d5dfc4; border-radius: 12px; background: #fff9e9; }
+.extra-puzzle [aria-pressed="true"] { border-color: #537763; background: #deedda; box-shadow: inset 0 0 0 1px #537763; }
+.extra-options small, .basket small { display: block; font-size: 12px; color: #647357; }
+.basket { padding: 16px 10px; text-align: center; border: 2px dashed #c5b17d; background: #fff5da; border-radius: 15px; margin: 15px 0; overflow-wrap: anywhere; }
+.pipe-grid, .post-map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; max-width: 360px; margin: 12px auto; }
+.water-garden { display: grid; grid-template-columns: 42px minmax(0, 360px) 42px; align-items: stretch; justify-content: center; margin: 20px auto; }
+.water-garden .pipe-grid { width: 100%; margin: 0; gap: 0; }
+.water-port { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #24697b; font-size: 11px; line-height: 1.5; border-radius: 12px; background: #d3edf0; }
+.water-port > span:not(.port-arrow) { font-size: 26px; }
+.water-port::after { content: ""; position: absolute; top: calc(50% - 7px); height: 14px; width: 8px; background: #3690aa; z-index: 1; }
+.water-inlet { grid-column: 1; grid-row: 1; align-self: start; height: calc(100% / 3); }
+.water-inlet::after { right: -5px; }
+.water-garden .pipe-grid { grid-column: 2; grid-row: 1; }
+.water-outlet { grid-column: 3; grid-row: 1; align-self: end; height: calc(100% / 3); background: #f9e9b9; color: #806422; }
+.water-outlet::after { left: -5px; }
+.port-arrow { position: absolute; top: calc(50% - 14px); font-size: 22px; font-weight: 900; color: #24697b; z-index: 2; }
+.water-inlet .port-arrow { right: -9px; }
+.water-outlet .port-arrow { left: -9px; }
+.water-fill, .water-drops { fill: none; stroke-linecap: round; }
+.water-fill { stroke: #2e9dbd; stroke-width: 13px; stroke-dasharray: 1; animation: water-arrival .16s linear var(--water-delay) both; }
+.water-drops { stroke: #dbffff; stroke-width: 4px; stroke-dasharray: 3 19; animation: water-stream .65s linear 1.3s 7, water-visible .01s linear 1.3s both; }
+.water-flower { transform-origin: 75px 20px; animation: flower-bloom .4s ease-out calc(var(--water-delay) + .15s) both; }
+.water-running .drinking-duck { animation: duck-cheer .45s ease-in-out 1.3s 5 alternate; }
+.pipe-grid button { aspect-ratio: 1; background: transparent; padding: 2px; min-width: 0; border-radius: 14px; }
+.pipe-grid svg, .post-map svg { width: 100%; display: block; }
+.river-banks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding: 12px; background: #cde2e2; border-radius: 16px; }
+.river-banks section { border-radius: 14px; background: #eef0d9; padding: 12px 7px; text-align: center; min-height: 210px; font-size: 12px; }
+.river-banks button { display: block; width: 100%; margin: 6px auto; padding: 7px 2px; }
+.river-banks button:disabled { opacity: .6; }
+.ferry-rules { display: grid; gap: 4px; margin: 10px 0; padding: 10px 12px; border-radius: 16px; background: #fff3c9; color: #536b53; font-size: 12px; line-height: 1.7; }
+.ferry-rules strong { font-size: 14px; }
+.echo-score { display: grid; gap: 10px; text-align: left; font-size: 16px; line-height: 1.8; margin: 20px auto; width: fit-content; padding-left: 28px; }
+.echo-score li:nth-child(4) { border-top: 2px dashed #d1d7bc; padding-top: 12px; }
+.address-card { padding: 12px; background: #fffae5; border-radius: 12px; border: 1px solid #d9c79d; }
+.map-edge { text-align: center; font-size: 12px; margin: 4px; color: #647357; }
+.post-map { border: 2px solid #c1ceb0; border-radius: 14px; padding: 6px; background: #dce8ca; }
+.post-map button { position: relative; background: #f7f3df; padding: 3px; border-radius: 10px; min-width: 0; min-height: 80px; }
+.post-map button span { display: block; font-size: 12px; line-height: 1.5; min-height: 18px; }
+.map-landmark { display: grid; place-items: center; text-align: center; font-size: 14px; background: #cbdcb4; border-radius: 10px; padding: 4px; }
+.level-navigation { gap: 10px; align-items: flex-start; }
+.chapter-label { flex-shrink: 0; padding-top: 15px; }
+.expedition-rules { padding: 14px; background: #fff7df; border: 1px solid #d6cbac; border-radius: 12px; }
+.plan-slots { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 25px; }
+.plan-slots li { padding: 9px; margin-right: 12px; min-height: 48px; border: 2px dashed #c3cdb3; background: #fffdf3; border-radius: 10px; }
+.plan-slots svg, .extra-options .shape-svg, .extra-options svg { width: 35px; height: 35px; vertical-align: middle; }
+.weather-switches, .frog-pond { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+.weather-switches button, .frog-pond button { padding: 8px 0; min-height: 70px; border: 2px solid #c5d3b6; background: #f9f4dc; border-radius: 14px; }
+.weather-switches span, .frog-pond span { display: block; font-size: clamp(20px, 5vw, 35px); }
+.weather-switches small, .frog-pond small, .frog-pond strong { display: block; font-size: 11px; }
+.meal-places, .bowl-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.meal-places button, .bowl-row > div { background: #fff5dc; border: 2px solid #cdd7b9; border-radius: 13px; padding: 12px 4px; text-align: center; }
+.meal-places small { display: block; min-height: 32px; }
+.bowl-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bowl-row p { overflow-wrap: anywhere; min-height: 55px; margin: 8px 0; }
+.butterfly-reference { margin: 12px auto; text-align: center; font-size: 11px; }
+.butterfly-reference svg { display: block; width: 110px; height: 110px; margin: auto; }
+.slide-board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; max-width: 350px; margin: auto; border: 3px solid #b0bf9d; background: #b0bf9d; }
+.slide-board button { padding: 0; aspect-ratio: 1; min-width: 0; background: #f1e7c7; }
+.slide-board svg { display: block; width: 100%; }
+.mirror-board, .flight-map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3px; max-width: 360px; margin: 15px auto; }
+.mirror-board > *, .flight-map > div { display: grid; place-items: center; aspect-ratio: 1; background: #e5edd8; border: 1px solid #b5c3a4; min-width: 0; border-radius: 8px; font-size: 22px; }
+.mirror-board > :nth-child(4n + 2) { border-right: 5px solid #8eafc7; border-radius: 8px 0 0 8px; }
+.mirror-board > :nth-child(4n + 3) { border-left: 5px solid #8eafc7; border-radius: 0 8px 8px 0; }
+.mirror-given { opacity: .8; }
+.flight-map > div { font-size: 14px; }
+.window-board { display: grid; grid-template-columns: 35px repeat(4, minmax(0, 1fr)); gap: 4px; max-width: 360px; margin: auto; }
+.window-board > strong { display: grid; place-items: center; font-size: 12px; text-align: center; line-height: 1.5; min-height: 30px; }
+.window-board button { aspect-ratio: 1; border-radius: 8px; background: #b4bfd0; border: 2px solid #98a9ba; font-size: 23px; }
+.window-guide { max-width: 480px; margin: 0 auto 10px; padding: 9px 12px; border-radius: 15px; background: #f4eed8; color: #526553; font-size: 12px; line-height: 1.55; }
+.window-guide p { margin: 4px 0; }
+.window-guide-title { text-align: center; }
+.window-guide-title strong { color: #426d63; font-size: 14px; }
+.window-guide-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 7px auto; }
+.window-example { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; padding: 5px; background: #fffdf4; border: 1px solid #ded5bb; border-radius: 11px; }
+.window-example > span:first-child { font-size: 11px; }
+.window-example b { color: #fff; background: #628a78; border-radius: 50%; min-width: 23px; text-align: center; }
+.window-example-cells { white-space: nowrap; font-size: 14px; letter-spacing: 1px; }
+.window-example-cells.vertical { line-height: 1.25; letter-spacing: 0; }
+.window-directions, .window-toggle-help { max-width: 360px; margin: 8px auto 4px; color: #49675d; font-size: 11px; text-align: center; }
+.window-board > strong { color: #354e46; }
+.window-board .window-clue { min-height: 30px; padding: 2px; color: #354e46; background: transparent; border: 0; border-radius: 6px; font-size: 13px; font-weight: 800; }
+.window-board button[aria-pressed="true"] { background: #fff0b4; border-color: #d3ae55; }
+.window-board button[aria-pressed="false"] { background: #dce5eb; }
+.window-zoom-line { display: flex; justify-content: center; gap: 7px; margin: 14px auto; }
+.window-zoom-line span { display: grid; place-items: center; width: 52px; height: 52px; background: #e6edf0; border: 2px solid #98a9ba; border-radius: 10px; font-size: 23px; }
+.window-zoom-line.vertical { flex-direction: column; align-items: center; }
+.frog-goal { text-align: center; padding: 10px; font-size: 13px; background: #e3eedb; border-radius: 12px; margin: 12px 0; }
+.new-tool-magnet { animation: magnet-pull .5s ease-in-out 3 alternate; transform-origin: 300px 170px; }
+.new-tool-time { animation: clock-turn 1.4s ease-in-out; transform-origin: 300px 170px; }
+.new-tool-umbrella { animation: umbrella-open .8s ease-out both; transform-origin: 300px 170px; }
+.new-tool-translate { animation: talk-bubble .4s ease-in-out 4 alternate; transform-origin: 300px 170px; }
+.new-tool-copy { animation: double-copy .6s ease-in-out 2 alternate; }
+.new-tool-repair { animation: repair-draw 1.3s ease-in-out; transform-origin: 300px 170px; }
+@keyframes magnet-pull { from { transform: translateX(-30px) rotate(-12deg); } to { transform: translateX(30px) rotate(12deg); } }
+@keyframes clock-turn { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes umbrella-open { from { transform: scale(.2); } 70% { transform: scale(1.2); } to { transform: scale(1); } }
+@keyframes talk-bubble { from { transform: scale(.8); } to { transform: scale(1.1); } }
+@keyframes double-copy { from { transform: translateX(-35px); } to { transform: translateX(35px); filter: drop-shadow(-80px 0 0 #b0c5a180); } }
+@keyframes repair-draw { 0%, 100% { transform: translate(0); } 35% { transform: translate(-45px, 25px) rotate(-15deg); } 70% { transform: translate(45px, -15px) rotate(15deg); } }
+.gadget-effect { position: fixed; z-index: 30; width: min(440px, 94vw); transform: translate(-50%, -50%); pointer-events: none; text-align: center; animation: gadget-appear 1.7s ease both; }
+.gadget-effect svg { display: block; width: 100%; overflow: visible; filter: drop-shadow(0 6px 12px #55776333); }
+.gadget-effect > span { display: inline-block; font-size: 14px; font-weight: 700; padding: 8px 14px; border-radius: 20px; background: #fffceeea; color: #47664e; box-shadow: 0 2px 12px #47664e22; }
+.effect-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 15px 0; }
+.effect-controls button { min-height: 44px; font-size: 12px; }
+.effect-controls > span { flex-basis: 100%; font-size: 12px; color: #647357; line-height: 1.8; }
+.scope-lens { animation: secret-scan 1.4s ease-in-out both; transform-origin: 300px 170px; }
+.scope-beam { animation: beam-glow .45s ease-in-out 3 alternate; }
+.growing-rainbow path { stroke-dasharray: 1; animation: rainbow-grow .65s ease-out both; }
+.bridge-friend { animation: bridge-hop 1.3s ease-in-out both; }
+.shrinking-friend { transform-origin: 300px 235px; animation: friend-shrink 1.3s ease-in-out both; }
+.shrink-beam { animation: beam-glow .3s ease-in-out 4 alternate; }
+.gadget-sparkles { transform-origin: center; animation: sparkle-pop .5s ease-in-out 3 alternate; }
+.flying-friend { animation: friend-fly 1.45s ease-in-out both; }
+.flying-clouds { animation: cloud-puff 1.4s ease-out both; }
+.spinning-propeller { transform-origin: 300px 157px; animation: propeller-spin .16s linear infinite; }
+@keyframes gadget-appear { 0% { opacity: 0; } 12%, 80% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes secret-scan { 0% { transform: translateX(-65px) scale(.7); } 55% { transform: translateX(40px) scale(1.05); } 100% { transform: translateX(0) scale(1); } }
+@keyframes beam-glow { from { opacity: .15; } to { opacity: .7; } }
+@keyframes rainbow-grow { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes bridge-hop { 0%, 35% { transform: translate(-140px, 35px); } 65% { transform: translateY(-30px); } 100% { transform: translate(140px, 35px); } }
+@keyframes friend-shrink { 0%, 15% { transform: scale(1); } 65% { transform: scale(.25) rotate(-8deg); } 85% { transform: scale(.4) rotate(5deg); } 100% { transform: scale(.35); } }
+@keyframes sparkle-pop { from { opacity: .3; transform: scale(.8); } to { opacity: 1; transform: scale(1.1); } }
+@keyframes friend-fly { 0% { transform: translateY(60px); } 30% { transform: translateY(35px) rotate(-3deg); } 100% { transform: translateY(-130px) rotate(4deg); } }
+@keyframes cloud-puff { from { opacity: 0; transform: translateY(-10px); } 40% { opacity: 1; } to { opacity: .3; transform: translateY(40px); } }
+@keyframes propeller-spin { to { transform: scaleX(-1); } }
+@keyframes water-arrival { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes water-stream { to { stroke-dashoffset: -44; } }
+@keyframes water-visible { from { opacity: 0; } to { opacity: 1; } }
+@keyframes flower-bloom { from { opacity: 0; transform: scale(.1); } to { opacity: 1; transform: scale(1); } }
+@keyframes duck-cheer { from { transform: translateY(0) rotate(-7deg); } to { transform: translateY(-6px) rotate(7deg); } }
+@media (prefers-reduced-motion: reduce) {
+  body:not(.gadget-motion-on) .gadget-effect { display: none; }
+  .water-fill, .water-drops, .water-flower, .water-running .drinking-duck { animation: none; }
+}
 @keyframes beacon { 0%, 100% { box-shadow: 0 0 0 4px #ffffff35, 0 3px 8px #355b5720; } 50% { box-shadow: 0 0 0 9px #ffffff15, 0 3px 8px #355b5720; } }
 @keyframes floating { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-7px) rotate(2deg); } }
 @keyframes cloud-drift { from { transform: translateX(-5px); } to { transform: translateX(10px); } }
@@ -329,7 +480,6 @@ dialog h2 { margin: 11px 0; font-size: 25px; letter-spacing: .5px; }
   dialog h2 { font-size: 22px; }
   .shape-choice { min-width: 0; flex: 1; }
   .shape-choices { gap: 7px; }
-  .arrow-tile { width: 48px; height: 48px; }
 }
 @media (max-width: 1000px) {
   .chapter-label { display: none; }
@@ -339,5 +489,216 @@ dialog h2 { margin: 11px 0; font-size: 25px; letter-spacing: .5px; }
   .scene.puzzle-scene { padding: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  *:not(.gadget-effect):not(.gadget-effect *), *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+@media (max-width: 800px) {
+  .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tool-card { min-height: 80px; }
+  .tool-name { font-size: 12px; }
+  .tool-description { font-size: 10px; white-space: normal; }
+}
+
+/* Scene-first game shell. */
+body { background: radial-gradient(ellipse at 15% 0, #d2eceb, transparent 55%), linear-gradient(#edf4e9, #e1ebdd); background-attachment: fixed; }
+.site-header { height: 66px; max-width: 1380px; border: 0; padding: 0 24px; }
+.brand { font-size: 17px; }
+.brand small, .nav-current, .intro, .page-decoration, .site-footer { display: none; }
+.header-nav { margin: 0 0 0 auto; padding: 0; }
+.header-actions { gap: 12px; }
+main { max-width: 1320px; padding: 0 18px 22px; }
+.adventure { position: relative; }
+.world-map { position: relative; margin-bottom: 10px; }
+.world-map > summary { display: flex; align-items: center; gap: 16px; min-height: 46px; padding: 9px 16px; border: 2px solid #fffdf6; border-radius: 18px; background: #ffffffa8; font-weight: 700; font-size: 13px; cursor: pointer; list-style: none; color: #466d63; box-shadow: 0 3px 0 #adc5b566; }
+.world-map > summary::-webkit-details-marker { display: none; }
+#map-current { color: #71876a; font-size: 12px; }
+.map-expand { margin-left: auto; font-size: 11px; }
+.world-map[open] .level-navigation { padding: 18px; border-radius: 20px; background: #f9fbef; margin: 8px 0; border: 2px solid #fff; box-shadow: 0 8px 25px #42634720; }
+.level-navigation { display: block; }
+.chapter-label { display: none; }
+.level-tabs { gap: 9px; justify-content: center; }
+.level-tab { background: #e4eedb; border-radius: 22px; padding: 8px 12px; min-height: 48px; }
+.level-tab:nth-of-type(even) { transform: translateY(4px); }
+.level-tab.active { background: #fff1b7; border-color: #dfc36d; }
+.game-card { display: block; padding: 10px; border: 3px solid #fffdf5; border-radius: 28px; background: #fafff4b8; box-shadow: 0 9px 0 #a9c2ad66, 0 16px 35px #385d4920; overflow: visible; }
+.scene-column { padding: 0; }
+.scene-heading { padding: 5px 13px 10px; margin: 0; align-items: center; }
+.scene-heading h2 { font-size: 19px; color: #385e59; }
+.scene-kicker { font-size: 10px; letter-spacing: 1px; color: #69846e; margin-bottom: 4px; }
+#restart-button { background: #e7efdb; border-radius: 14px; padding: 8px 12px; min-height: 42px; color: #57725b; }
+.scene { border-radius: 21px; box-shadow: inset 0 0 0 2px #ffffff90; }
+.scene:not(.puzzle-scene) { max-height: 62vh; min-height: 330px; }
+.scene-caption { min-height: 30px; padding: 3px 12px; color: #617e69; }
+.scene-caption-right { display: none; }
+.companion-panel { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 5px 12px; background: transparent; border: 0; }
+.friend-heading { display: none; }
+.companion-art { height: 70px; padding: 0; grid-column: 1; grid-row: 1; }
+.speech-bubble { grid-column: 2; grid-row: 1; padding: 8px 13px; min-height: 0; border-radius: 18px 18px 18px 3px; background: #fffef1; border-color: #d3ddc0; }
+.speech-bubble::before { display: none; }
+.speech-bubble p { font-size: 12px; color: #58705b; line-height: 1.65; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.speech-bubble.expanded p { display: block; }
+.friend-actions { display: flex; gap: 12px; justify-content: flex-end; }
+.read-button { margin: 0; color: #627d64; min-height: 24px; font-size: 10px; }
+.hint-button { grid-column: 3; grid-row: 1; width: auto; min-height: 48px; padding: 8px 15px; background: #ffecad; border: 2px solid #e8cf84; border-radius: 20px; color: #766038; font-size: 12px; }
+.mission-details { grid-column: 2 / -1; color: #688065; font-size: 11px; }
+.mission-details > summary { cursor: pointer; width: fit-content; }
+#mission-count { margin-left: 8px; }
+.missions { margin: 10px 0; gap: 6px; }
+.toolbox { display: block; padding: 9px 12px 12px; border: 3px solid #fffbed; border-radius: 25px; margin-top: 16px; background: #e5d7b4; box-shadow: 0 5px 0 #b8a57e; }
+.toolbox-label { min-width: 0; display: block; margin: 0 0 6px 5px; }
+.toolbox-label p, .toolbox-label .pocket-mini { display: none; }
+.toolbox h2 { font-size: 11px; color: #756748; margin: 0; }
+.tools { display: flex; gap: 9px; overflow-x: auto; padding: 5px 3px 9px; scroll-snap-type: x proximity; scrollbar-color: #b6a276 #e5d7b4; }
+.tool-card { display: flex; flex-direction: column; justify-content: center; flex: 1 0 93px; min-height: 83px; padding: 6px 8px; gap: 4px; border: 2px solid #d5c59d; border-radius: 18px; background: #fff9e9; text-align: center; scroll-snap-align: center; box-shadow: 0 3px 0 #bda97c; }
+.tool-card.selected { background: #e1f4ef; border-color: #509a9c; box-shadow: 0 3px 0 #509a9c, 0 0 0 3px #ffffff88; }
+.tool-icon { width: 43px; height: 43px; }
+.tool-name { font-size: 10px; color: #536f61; }
+.tool-description { display: none; }
+.tool-number { font-size: 9px; color: #8c997b; }
+.game-settings { margin: 18px 5px 0; font-size: 11px; color: #6b826a; }
+.game-settings > summary { cursor: pointer; width: fit-content; min-height: 32px; }
+.effect-controls { margin-top: 6px; }
+.below-game { margin: 5px; font-size: 9px; }
+.below-game > span:first-child { display: none; }
+.scene.puzzle-scene { position: relative; isolation: isolate; overflow: hidden; min-height: 460px; padding: 24px clamp(12px, 5vw, 75px); border: 0; background: linear-gradient(#c9e6e9 0%, #e0edcd 60%, #adca94 100%); }
+.scene[data-realm="night"], .scene[data-realm="music"], .scene[data-realm="post"] { background: linear-gradient(#8d9fbd, #c8c9d8 55%, #a8c0ab); }
+.scene[data-realm="art"], .scene[data-realm="workshop"], .scene[data-realm="cafe"] { background: linear-gradient(#efddbc, #f8edce 55%, #d0c29c); }
+.scene[data-realm="sky"], .scene[data-realm="festival"] { background: linear-gradient(#baddeb, #e6f3eb 60%, #afcb9b); }
+.new-scene-banner { position: absolute; inset: auto -5% 0; width: 110%; height: 100%; max-height: none; margin: 0; z-index: -1; opacity: .8; pointer-events: none; }
+.scene-story { position: relative; z-index: 1; margin: 0 0 12px; width: fit-content; max-width: 100%; font-size: 12px; color: #496760; background: #fffef2d9; padding: 8px 13px; border-radius: 16px; }
+.scene-story summary { cursor: pointer; }
+.scene-story p { max-width: 480px; line-height: 1.8; margin: 8px 0 3px; }
+.extra-puzzle { position: relative; background: #fffef2ed; border: 2px solid #fff; padding: 16px 22px; border-radius: 30px; box-shadow: 0 8px 0 #63846b2b, 0 14px 35px #385d491a; max-width: 680px; }
+.canvas-objective { text-align: center; font-size: 17px; font-weight: 800; color: #406860; margin: 0 0 8px; line-height: 1.6; }
+.canvas-rules { font-size: 12px; color: #526f60; max-width: 580px; margin: 0 auto 12px; }
+.canvas-rules summary { text-align: center; cursor: pointer; padding: 5px; }
+.canvas-rules > p, .canvas-rules > ul { background: #f4eed8; border: 0; padding: 12px 16px; margin: 5px 0; border-radius: 13px; }
+.extra-options { margin: 14px 0; }
+.extra-options button:not(.primary-button), .meal-places button { border-radius: 18px; box-shadow: 0 3px 0 #c6cfad; background: #fff8df; }
+.story-task { position: relative; max-width: 560px; margin: 65px auto 40px; padding: 24px; background: #fffbeded; border: 2px solid #fff8d3; border-radius: 28px; box-shadow: 0 8px 0 #72945a33; }
+.story-task p { color: #5f765c; font-size: 14px; }
+.story-task .primary-button { border-radius: 22px; }
+.inline-feedback { font-size: 12px; min-height: 23px; margin-top: 8px; color: #59775f; }
+.extra-puzzle > .text-button { min-height: 32px; font-size: 11px; }
+.garden-board { border-radius: 24px; border: 3px solid #faffed; box-shadow: 0 5px 0 #779c6c33; }
+.garden-pair { gap: 16px; }
+.puzzle-intro > span, .puzzle-intro > strong { display: none; }
+.puzzle-intro p { margin: 0; color: #496d5c; }
+.puzzle-intro { margin-bottom: 12px; }
+.flight-map > div { background: #d0e7b6; border: 0; border-radius: 15px; font-size: 19px; }
+.flight-map > div:has(+ div) { box-shadow: inset 0 -3px 0 #afcb91; }
+.frog-pond { padding: 14px 8px; border-radius: 40px; background: #b0d7d1; }
+.frog-pond button { border-radius: 50%; background: #d1e4a6; box-shadow: 0 4px 0 #809e64; }
+.plan-slots li { border-radius: 17px; border-color: #c5cbaf; }
+.basket { border-radius: 23px; }
+@media (max-width: 800px) {
+  .site-header { height: 58px; padding: 0 12px; gap: 8px; }
+  .brand { font-size: 13px; letter-spacing: 0; }
+  .brand-mark { width: 30px; height: 34px; }
+  .header-actions { gap: 7px; }
+  .header-nav { margin-left: auto; }
+  main { padding: 0 8px 12px; }
+  .world-map > summary { min-height: 42px; padding: 8px 11px; font-size: 12px; gap: 8px; }
+  #map-current { font-size: 10px; }
+  .world-map[open] .level-navigation { padding: 9px; }
+  .game-card { padding: 5px; border-radius: 23px; }
+  .scene-heading { padding: 4px 7px 8px; gap: 5px; }
+  .scene-heading h2 { font-size: 15px; letter-spacing: 0; }
+  .scene-kicker { font-size: 8px; letter-spacing: .5px; }
+  #restart-button { font-size: 0; padding: 5px 10px; flex-shrink: 0; }
+  #restart-button span { font-size: 23px; margin: 0; }
+  .scene:not(.puzzle-scene) { min-height: 290px; aspect-ratio: 1.15; max-height: 62vh; }
+  .scene.puzzle-scene { padding: 12px 8px 24px; min-height: 370px; border-radius: 18px; }
+  .extra-puzzle { padding: 13px 9px; border-radius: 23px; font-size: 12px; }
+  .canvas-objective { font-size: 14px; }
+  .canvas-rules { margin-bottom: 8px; }
+  .scene-story { font-size: 10px; padding: 6px 10px; margin-bottom: 8px; }
+  .scene-story p { font-size: 12px; }
+  .story-task { margin: 65px auto 35px; padding: 20px 10px; }
+  .story-task .primary-button { font-size: 13px; padding: 12px; }
+  .companion-panel { grid-template-columns: 45px minmax(0, 1fr) auto; gap: 5px; padding: 5px 4px; }
+  .companion-art { height: 48px; }
+  .speech-bubble { padding: 7px 9px; }
+  .speech-bubble p { font-size: 11px; }
+  .hint-button { font-size: 0; border-radius: 50%; min-width: 43px; width: 43px; height: 43px; min-height: 43px; padding: 0; gap: 0; }
+  .hint-button > span { font-size: 25px; }
+  .mission-details { font-size: 10px; }
+  .scene-caption { font-size: 9px; line-height: 1.6; min-height: 25px; padding: 4px; }
+  .toolbox { margin-top: 12px; padding: 7px 6px; border-radius: 20px; }
+  .tool-card { flex-basis: 76px; min-height: 75px; padding: 4px; min-width: 76px; }
+  .tool-name { font-size: 9px; white-space: normal; }
+  .tool-icon { width: 38px; height: 38px; }
+  .toolbox-label { margin-bottom: 3px; }
+  .tools { padding-bottom: 7px; gap: 7px; }
+  .garden-pair { gap: 9px; }
+  .game-settings { margin-top: 13px; }
+  .below-game { font-size: 8px; }
+}
+.extra-puzzle { background: #fffef2d9; border: 0; box-shadow: none; }
+.canvas-help { position: absolute; right: 8px; top: 39px; width: 36px; height: 36px; padding: 0; border-radius: 50%; background: #ffecad; color: #80652e; font-size: 24px; }
+.canvas-help:hover { background: #ffe294; }
+.extra-puzzle > .text-button.canvas-help { min-height: 36px; font-size: 24px; margin: 0; }
+.canvas-actions { gap: 8px; align-items: center; margin: 12px 0 0; }
+.canvas-actions button { min-height: 44px; padding: 8px 13px; font-size: 12px; }
+.canvas-actions button.primary-button { padding: 9px 18px; border-radius: 18px; }
+.extra-puzzle [hidden] { display: none; }
+.direction-pad { gap: 8px; }
+.direction-pad button { min-width: 48px; }
+.scene[data-puzzle="program"] .extra-puzzle, .scene[data-puzzle="frogs"] .extra-puzzle, .scene[data-puzzle="mirror"] .extra-puzzle, .scene[data-puzzle="clouds"] .extra-puzzle { background: transparent; padding-left: 5px; padding-right: 5px; }
+.scene[data-puzzle="program"] .canvas-objective, .scene[data-puzzle="frogs"] .canvas-objective, .scene[data-puzzle="mirror"] .canvas-objective, .scene[data-puzzle="clouds"] .canvas-objective { background: #fffce9e8; border-radius: 18px; padding: 7px 12px; width: fit-content; margin: 0 auto 5px; }
+.flight-map { padding: 8px; border-radius: 23px; background: #f7f9e3; box-shadow: 0 6px 0 #829c6a; }
+.scene[data-puzzle="program"] .plan-slots { min-height: 36px; margin: 10px auto; padding-left: 22px; justify-content: center; }
+.scene[data-puzzle="program"] .plan-slots li { min-height: 32px; padding: 4px 8px; font-size: 11px; background: #fffbe7; margin-right: 7px; }
+.scene[data-puzzle="program"] .extra-puzzle > p:not(.canvas-objective):not(.inline-feedback) { font-size: 11px; text-align: center; margin: 4px 0; color: #48634f; }
+.scene[data-puzzle="program"] .direction-pad { margin: 8px 0; }
+@media (max-width: 800px) {
+  .flight-map { width: min(100%, 250px); margin: 10px auto; gap: 3px; }
+  .flight-map > div { font-size: 14px; border-radius: 12px; }
+  .extra-puzzle { padding-top: 9px; padding-bottom: 12px; }
+  .canvas-rules { margin-bottom: 6px; }
+  .canvas-objective { font-size: 13px; padding-right: 18px; }
+  .canvas-actions { gap: 6px; margin-top: 9px; }
+  .canvas-actions button:not(.primary-button) { padding: 7px 9px; min-height: 44px; font-size: 11px; }
+  .canvas-actions button.primary-button { padding: 8px 14px; font-size: 12px; }
+  .canvas-help { top: 31px; right: 2px; }
+  .window-guide { font-size: 11px; padding: 7px 8px; }
+  .window-guide-examples { gap: 5px; }
+  .window-example { gap: 4px; padding: 4px 2px; }
+  .window-example > span:first-child { font-size: 10px; }
+  .window-example-cells { font-size: 12px; letter-spacing: 0; }
+  .window-board { grid-template-columns: 27px repeat(4, minmax(0, 1fr)); gap: 3px; }
+  .window-board button { font-size: 19px; }
+  .scene[data-puzzle="program"] .direction-pad button { min-height: 44px; padding: 7px 10px; }
+  .scene[data-puzzle="program"] .inline-feedback { font-size: 11px; }
+  .scene[data-puzzle="program"] .extra-puzzle { padding-bottom: 5px; }
+}
+@media (min-width: 801px) {
+  .scene[data-puzzle="program"] .extra-puzzle { display: grid; grid-template-columns: minmax(0, 360px) minmax(160px, 1fr); gap: 10px 24px; align-items: center; max-width: 720px; }
+  .scene[data-puzzle="program"] .canvas-objective { grid-column: 1 / -1; }
+  .scene[data-puzzle="program"] .canvas-rules { grid-column: 1 / -1; }
+  .scene[data-puzzle="program"] .flight-map { grid-column: 1; grid-row: 3 / 8; width: 100%; margin: 0; }
+  .scene[data-puzzle="program"] .plan-slots,
+  .scene[data-puzzle="program"] .direction-pad,
+  .scene[data-puzzle="program"] .canvas-actions,
+  .scene[data-puzzle="program"] .inline-feedback,
+  .scene[data-puzzle="program"] .extra-puzzle > p:not(.canvas-objective) { grid-column: 2; }
+  .scene[data-puzzle="program"] .direction-pad { max-width: 150px; margin: auto; }
+  .scene[data-puzzle="program"] .canvas-help { top: 0; right: 0; }
+  .scene[data-puzzle="program"] .canvas-actions { margin: 0; }
+  .scene[data-puzzle="program"] .extra-puzzle > .text-button.canvas-help { position: absolute; }
+}
+.detail-comparison { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; text-align: center; }
+.detail-comparison > div { background: #e3efe2; border-radius: 20px; padding: 10px; }
+.detail-comparison svg { display: block; width: 100%; max-height: 230px; }
+.route-cell.river-gap { background: #d3eaf0; border: 2px dashed #6795ab; }
+.route-cell.bridged { background: linear-gradient(125deg, #edd0c0, #f8edb7, #c9e6d9); border-color: #93aa82; }
+.route-pocket { display: flex; justify-content: center; gap: 10px; margin: 15px 0; }
+.route-pocket button { width: 48px; height: 48px; padding: 4px; background: #fff9e9; border: 2px solid #d5c59d; border-radius: 13px; }
+.route-pocket button[aria-pressed="true"] { border-color: #509a9c; background: #e1f4ef; }
+.route-pocket svg { width: 100%; height: 100%; }
+.cookie-inspection section { background: #faf3da; padding: 10px; border-radius: 15px; margin: 10px 0; }
+.cookie-inspection h3 { font-size: 15px; margin: 0 0 8px; }
+.cookie-inspection section > div { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.cookie-inspection section span { display: grid; place-items: center; min-height: 58px; border: 2px solid #dfd4b8; border-radius: 12px; font-size: 24px; }
+.cookie-inspection .shape-svg { width: 44px; height: 44px; }
+.cookie-inspection span.here { border-color: #509a9c; background: #e1f4ef; }
+.cookie-inspection small { font-size: 11px; }
